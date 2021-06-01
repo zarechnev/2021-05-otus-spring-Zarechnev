@@ -1,0 +1,2 @@
+rootProject.name = 'otus-spring-202105-zarechnev'
+include '1_student_tester'
