@@ -1,5 +1,23 @@
-# Репозиторий слушателя
-**Вендор** OTUS
-**Курс** Разработчик на Spring Framework
-**Слушатель** Заречнев Руслан Андреевич
-**Дата начала курса** 28.05.2021
+## Spring-course student repo
+
+### Main info
+
+| Prop  | Val |
+| ------------- | ------------- |
+| Vendor  | OTUS  |
+| Course  | Разработчик на Spring Framework  |
+| Student  | Заречнев Руслан Андреевич |
+| Start date  |28.05.2021 |
+
+### Home work
+
+1. Приложение по проведению тестирования студентов (только вывод вопросов)</br>
+   **Directory**</br>
+   ```1_student_tester/```</br>
+   **Command for run tests**</br>
+   ```gradlew.bat :1_student_tester:test```</br>
+   **Command for run**</br>
+   ```gradlew.bat :1_student_tester:run```</br>
+   **Comand for build and run JAR**</br>
+   ```gradlew.bat :1_student_tester:jar```</br>
+   ```java -jar ./1_student_tester/build/libs/1_student_tester-0.1.jar```
