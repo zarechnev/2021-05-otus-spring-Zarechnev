@@ -1,0 +1,5 @@
+s1;What is the name of our planet?;Mars;false;Moon;false;Earth;true
+s2;What is the name of the satellite of the Earth?;Moon;true;Callisto;false;Ganymede;false
+s3;The fourth planet of the Solar system is;Venus;false;Mars;true;Pluto;false
+s4;The largest planet in the Solar system is;Mars;false;Pluto;false;Jupiter;true
+s5;The smallest planet in the Solar system is;Mars;false;Mercury;true;Pluto;false
