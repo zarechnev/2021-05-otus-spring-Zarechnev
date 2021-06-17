@@ -1,0 +1,9 @@
+   ____    _                     _______                _
+  / __ \  | |                   |__   __|              | |
+ | |  | | | |_   _   _   ___       | |      ___   ___  | |_    ___   _ __
+ | |  | | | __| | | | | / __|      | |     / _ \ / __| | __|  / _ \ | '__|
+ | |__| | | |_  | |_| | \__ \      | |    |  __/ \__ \ | |_  |  __/ | |
+  \____/   \__|  \__,_| |___/      |_|     \___| |___/  \__|  \___| |_|
+
+Author Ruslan A. Zarechnev. Powered by Spring Boot ${spring-boot.version}
+${application.title} ${application.version}
