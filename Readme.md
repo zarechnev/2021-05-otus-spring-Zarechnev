@@ -33,10 +33,18 @@
    ```gradlew.bat :2_student_tester:jar```</br>
    ```java -jar ./2_student_tester/build/libs/2_student_tester-0.1.jar```
 
-1. Приложение по проведению тестирования студентов (только вывод вопросов)</br>
+1. Приложение по проведению тестирования студентов (с самим тестированием)</br>
    **Directory**</br>
    ```4_student_tester/```</br>
    **Command for run tests**</br>
    ```gradlew.bat :4_student_tester:test```</br>
    **Command for run**</br>
    ```gradlew.bat :4_student_tester:run```</br>
+
+1. Перевести приложение для проведения опросов на Spring Shell</br>
+   **Directory**</br>
+   ```5_student_tester/```</br>
+   **Command for run tests**</br>
+   ```gradlew.bat :5_student_tester:test```</br>
+   **Command for run**</br>
+   ```gradlew.bat :5_student_tester:run```</br>
