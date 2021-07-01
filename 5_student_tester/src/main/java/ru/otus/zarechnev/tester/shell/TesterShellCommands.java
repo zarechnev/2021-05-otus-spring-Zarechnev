@@ -9,7 +9,7 @@ import java.util.Set;
 
 @ShellComponent
 @RequiredArgsConstructor
-public class ApplicationEventsCommands {
+public class TesterShellCommands {
 
     private final Tester tester;
 

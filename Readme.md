@@ -48,3 +48,11 @@
    ```gradlew.bat :5_student_tester:test```</br>
    **Command for run**</br>
    ```gradlew.bat :5_student_tester:run```</br>
+
+1. Создать приложение хранящее информацию о книгах в библиотеке</br>
+   **Directory**</br>
+   ```7_library_system/```</br>
+   **Command for run tests**</br>
+   ```gradlew.bat :7_library_system:test```</br>
+   **Command for run**</br>
+   ```gradlew.bat :7_library_system:run```</br>
