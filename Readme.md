@@ -56,3 +56,11 @@
    ```gradlew.bat :7_library_system:test```</br>
    **Command for run**</br>
    ```gradlew.bat :7_library_system:run```</br>
+
+1. Переписать приложение для хранения книг на ORM</br>
+   **Directory**</br>
+   ```9_library_system/```</br>
+   **Command for run tests**</br>
+   ```gradlew.bat :9_library_system:test```</br>
+   **Command for run**</br>
+   ```gradlew.bat :9_library_system:run```</br>

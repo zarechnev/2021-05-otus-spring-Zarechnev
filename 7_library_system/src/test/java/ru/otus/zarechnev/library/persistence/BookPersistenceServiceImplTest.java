@@ -14,7 +14,6 @@ import ru.otus.zarechnev.library.persistence.sequence.SequenceService;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-// TODO need more tests
 @ExtendWith(MockitoExtension.class)
 class BookPersistenceServiceImplTest {
 
