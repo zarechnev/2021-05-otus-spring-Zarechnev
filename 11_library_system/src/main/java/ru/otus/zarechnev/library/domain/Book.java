@@ -42,7 +42,7 @@ public class Book {
     @Fetch(FetchMode.SELECT)
     private Author author;
 
-    @OneToMany(targetEntity = Comment.class, fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    @OneToMany(targetEntity = Comment.class, fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name = "book_id")
     @ToString.Exclude
     private List<Comment> comments;

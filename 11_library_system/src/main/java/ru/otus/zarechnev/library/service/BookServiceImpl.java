@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.otus.zarechnev.library.domain.Author;
 import ru.otus.zarechnev.library.domain.Book;
+import ru.otus.zarechnev.library.domain.Comment;
 import ru.otus.zarechnev.library.domain.Genre;
 import ru.otus.zarechnev.library.repository.AuthorRepository;
 import ru.otus.zarechnev.library.repository.BookRepository;
@@ -47,6 +48,11 @@ class BookServiceImpl implements BookService {
     public void deleteById(Long bookId) {
         bookRepository.deleteById(bookId);
 
+    }
+
+    @Override
+    public List<Comment> showCommentsByBookId(Long bookId) {
+        return bookRepository.findById(bookId).get().getComments();
     }
 
     private Book fillBook() {

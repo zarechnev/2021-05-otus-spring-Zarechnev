@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import ru.otus.zarechnev.library.domain.Book;
+import ru.otus.zarechnev.library.domain.Comment;
 import ru.otus.zarechnev.library.service.BookService;
 
 import java.util.List;
@@ -39,4 +40,8 @@ public class BookCommands {
         bookService.deleteById(bookId);
     }
 
+    @ShellMethod(value = "Show comments by book Id", key = {"bc", "book comments"})
+    public List<Comment> showCommentsByBookId(Long bookId) {
+        return bookService.showCommentsByBookId(bookId);
+    }
 }
