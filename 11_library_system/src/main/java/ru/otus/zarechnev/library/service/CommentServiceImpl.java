@@ -48,4 +48,9 @@ class CommentServiceImpl implements CommentService {
     public void deleteById(Long commentId) {
         commentRepository.deleteById(commentId);
     }
+
+    @Override
+    public List<Comment> showCommentsByBookId(Long bookId) {
+        return commentRepository.findByBookId(bookId);
+    }
 }

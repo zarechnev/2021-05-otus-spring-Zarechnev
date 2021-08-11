@@ -15,4 +15,6 @@ public interface CommentService {
     Comment findById(Long commentId);
 
     void deleteById(Long commentId);
+
+    List<Comment> showCommentsByBookId(Long bookId);
 }

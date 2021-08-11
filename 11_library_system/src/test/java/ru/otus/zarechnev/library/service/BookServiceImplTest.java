@@ -13,7 +13,6 @@ import ru.otus.zarechnev.library.repository.BookRepository;
 import ru.otus.zarechnev.library.repository.GenreRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;

@@ -39,4 +39,8 @@ public class CommentCommands {
         commentService.deleteById(commentId);
     }
 
+    @ShellMethod(value = "Show comments by book Id", key = {"cb", "comment book"})
+    public List<Comment> showCommentsByBookId(Long bookId) {
+        return commentService.showCommentsByBookId(bookId);
+    }
 }
