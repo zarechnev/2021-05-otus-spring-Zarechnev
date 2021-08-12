@@ -12,6 +12,7 @@ import ru.otus.zarechnev.library.repository.BookRepository;
 import ru.otus.zarechnev.library.repository.GenreRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -35,24 +36,27 @@ class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional
     public Book findById(Long bookId) {
         return bookRepository.findById(bookId).get();
     }
 
     @Override
+    @Transactional
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
 
     @Override
+    @Transactional
     public void deleteById(Long bookId) {
         bookRepository.deleteById(bookId);
-
     }
 
     @Override
+    @Transactional
     public List<Comment> showCommentsByBookId(Long bookId) {
-        return bookRepository.findById(bookId).get().getComments();
+        return bookRepository.findById(bookId).get().getComments().stream().collect(Collectors.toList());
     }
 
     private Book fillBook() {
