@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>zarechnev.org</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-0">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Главная<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container" id="main_container">
+
+    <div class="row">
+        <div class="col">
+            <h3>Библиотека</h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" id="booksListArea">
+        </div>
+    </div>
+
+    <button id="btnForOpenAddingBookArea" type="button" class="btn btn-primary">Добавить книгу</button>
+
+    <div class="row">
+        <div class="col bg-light text-dark" id="bookAddForm" hidden="hidden">
+            <br>
+
+            <div class="form-group">
+                <label for="inputId">Id</label>
+                <input type="text" class="form-control" id="inputId" name="id" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="inputTitle">Название</label>
+                <input type="text" class="form-control" id="inputTitle" name="title">
+            </div>
+
+            <div class="form-group">
+                <label for="inputAuthor">Автор</label>
+                <select name="author" id="inputAuthor">
+                    <option value="current value">current value</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="inputGenre">Жанр</label>
+                <select name="genre" id="inputGenre">
+                    <option value="current value">current value</option>
+                </select>
+            </div>
+            <button id="saveBookBtn" type="button" class="btn btn-success">Сохранить книгу</button>
+            <button id="cancelBookBtn" type="button" class="btn btn-outline-dark">Отмена</button>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <hr>
+    <div class="credit">Заречнев Руслан</div>
+</div>
+<script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+</body>
+</html>
