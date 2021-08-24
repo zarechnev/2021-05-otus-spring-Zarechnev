@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="~{fragments/top :: top}"></head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-0">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Главная<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container" id="main_container">
+
+    <div class="row">
+        <div class="col">
+            <h3>Библиотека</h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <form th:action="@{/save}" th:method="post">
+                <div class="form-group">
+                    <label for="bookId">Id</label>
+                    <input type="text" class="form-control" id="bookId" name="id" readonly="readonly"
+                           th:value="${book.id}">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputTitle">Название</label>
+                    <input type="text" class="form-control" id="inputTitle" name="title" th:value="${book.title}">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAuthor">Автор</label>
+                    <input type="text" class="form-control" id="inputAuthor" name="author"
+                           th:value="${book.author.name}">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputGenre">Жанр</label>
+                    <input type="text" class="form-control" id="inputGenre" name="genre" th:value="${book.genre.name}">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div th:include="~{fragments/bottom :: bottom}"></div>
+</body>
+</html>
