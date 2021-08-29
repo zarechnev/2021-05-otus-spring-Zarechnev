@@ -1,26 +1,35 @@
 package ru.otus.zarechnev.library.service;
 
+import com.mongodb.client.DistinctIterable;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.otus.zarechnev.library.domain.Author;
 import ru.otus.zarechnev.library.domain.Book;
-import ru.otus.zarechnev.library.repository.BookRepository;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 class AuthorServiceImpl implements AuthorService {
 
-    private final BookRepository bookRepository;
+    private final MongoTemplate mongoTemplate;
 
     @Override
     @Transactional
     public List<Author> findAll() {
-        return bookRepository.findAll().stream()
-                .map(Book::getAuthor)
-                .collect(Collectors.toList());
+        List<Author> list = new ArrayList<>();
+
+        DistinctIterable<String> distinct = mongoTemplate
+                .getCollection(mongoTemplate.getCollectionName(Book.class))
+                .distinct("author.name", String.class);
+
+        for (String s : distinct) {
+            list.add(new Author().setName(s));
+        }
+
+        return list;
     }
 }

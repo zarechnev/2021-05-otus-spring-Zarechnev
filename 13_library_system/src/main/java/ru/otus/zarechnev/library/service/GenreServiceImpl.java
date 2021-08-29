@@ -1,24 +1,33 @@
 package ru.otus.zarechnev.library.service;
 
+import com.mongodb.client.DistinctIterable;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import ru.otus.zarechnev.library.domain.Book;
 import ru.otus.zarechnev.library.domain.Genre;
-import ru.otus.zarechnev.library.repository.BookRepository;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 class GenreServiceImpl implements GenreService {
 
-    private final BookRepository bookRepository;
+    private final MongoTemplate mongoTemplate;
 
     @Override
     public List<Genre> findAll() {
-        return bookRepository.findAll().stream()
-                .map(Book::getGenre)
-                .collect(Collectors.toList());
+        List<Genre> list = new ArrayList<>();
+
+        DistinctIterable<String> distinct = mongoTemplate
+                .getCollection(mongoTemplate.getCollectionName(Book.class))
+                .distinct("genre.name", String.class);
+
+        for (String s : distinct) {
+            list.add(new Genre().setName(s));
+        }
+
+        return list;
     }
 }
