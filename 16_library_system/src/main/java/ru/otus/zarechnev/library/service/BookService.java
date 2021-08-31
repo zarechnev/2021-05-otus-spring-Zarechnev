@@ -15,5 +15,5 @@ public interface BookService {
 
     List<Book> findAll();
 
-    void deleteById(Long bookId);
+    void delete(Book book);
 }

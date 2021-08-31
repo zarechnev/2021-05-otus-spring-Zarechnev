@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
+import ru.otus.zarechnev.library.domain.Author;
+import ru.otus.zarechnev.library.domain.Book;
+import ru.otus.zarechnev.library.domain.Genre;
 import ru.otus.zarechnev.library.dto.BookDTO;
 import ru.otus.zarechnev.library.service.BookService;
 
@@ -19,18 +22,19 @@ public class LibraryController {
     @GetMapping("/")
     public String allBooksPage(Model model) {
         model.addAttribute("books", bookService.findAll());
-        return "allBooks.html";
+        return "allBooks";
     }
 
     @GetMapping("/edit")
     public String editBook(@RequestParam("id") Long id, Model model) {
         model.addAttribute("book", bookService.findById(id));
-        return "editBook.html";
+        return "saveBook";
     }
 
     @GetMapping("/addBook")
-    public String addBook() {
-        return "addBook.html";
+    public String addBook(Model model) {
+        model.addAttribute("book", new Book().setAuthor(new Author()).setGenre(new Genre()));
+        return "saveBook";
     }
 
     @PostMapping("/save")
@@ -39,12 +43,9 @@ public class LibraryController {
         return new RedirectView("/");
     }
 
-    // TODO org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Значение NULL не разрешено для поля "BOOK_ID"
-    // при попытке удалить книгу с комментариями
-
     @GetMapping("/deleteBook")
     public RedirectView deleteBook(@RequestParam("id") Long id) {
-        bookService.deleteById(id);
+        bookService.delete(bookService.findById(id));
         return new RedirectView("/");
     }
 }

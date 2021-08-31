@@ -35,11 +35,6 @@
                     <br><span>Жанр: </span>
                     <span th:text="${book.genre.name}">Book genre</span>
 
-                    <th:block th:if="${not #lists.isEmpty(book.comments)}">
-                        <br><span>Комментарии: </span>
-                        <span th:text="${book.comments}">Book comments</span>
-                    </th:block>
-
                     <br><a th:href="@{/deleteBook/(id=${book.id})}" href="deleteBook.html">удалить книгу</a>
                 </p>
             </th:block>
