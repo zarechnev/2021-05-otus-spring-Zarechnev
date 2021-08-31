@@ -6,7 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.otus.zarechnev.library.domain.Author;
 import ru.otus.zarechnev.library.domain.Book;
 import ru.otus.zarechnev.library.domain.Genre;
+import ru.otus.zarechnev.library.repository.AuthorRepository;
 import ru.otus.zarechnev.library.repository.BookRepository;
+import ru.otus.zarechnev.library.repository.GenreRepository;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ class BookServiceImpl implements BookService {
 
     private final UserCommunicator userCommunicator;
     private final BookRepository bookRepository;
+    private final AuthorRepository authorRepository;
+    private final GenreRepository genreRepository;
 
     @Override
     public List<Book> findAll() {
@@ -51,7 +55,7 @@ class BookServiceImpl implements BookService {
 
         return new Book()
                 .setTitle(title)
-                .setAuthor(new Author().setName(authorName))
-                .setGenre(new Genre().setName(genreName));
+                .setAuthor(authorRepository.save(new Author().setName(authorName)))
+                .setGenre(genreRepository.save(new Genre().setName(genreName)));
     }
 }

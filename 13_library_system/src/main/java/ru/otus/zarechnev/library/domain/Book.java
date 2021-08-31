@@ -3,6 +3,7 @@ package ru.otus.zarechnev.library.domain;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -17,8 +18,10 @@ public class Book {
 
     private String title;
 
+    @DBRef
     private Genre genre;
 
+    @DBRef
     private Author author;
 
     private List<Comment> comments;
