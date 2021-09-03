@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      port: 0
+      database: company
+
+mongock:
+  runner-type: "InitializingBean"
+  change-logs-scan-package:
+    - ru.otus.zarechnev.library.mongock.testchangelog
+  mongo-db:
+    write-concern:
+      journal: false
+    read-concern: local
