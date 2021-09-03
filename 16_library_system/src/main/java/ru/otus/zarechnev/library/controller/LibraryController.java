@@ -11,13 +11,17 @@ import ru.otus.zarechnev.library.domain.Author;
 import ru.otus.zarechnev.library.domain.Book;
 import ru.otus.zarechnev.library.domain.Genre;
 import ru.otus.zarechnev.library.dto.BookDTO;
+import ru.otus.zarechnev.library.service.AuthorService;
 import ru.otus.zarechnev.library.service.BookService;
+import ru.otus.zarechnev.library.service.GenreService;
 
 @Controller
 @RequiredArgsConstructor
 public class LibraryController {
 
     private final BookService bookService;
+    private final AuthorService authorService;
+    private final GenreService genreService;
 
     @GetMapping("/")
     public String allBooksPage(Model model) {
@@ -28,12 +32,16 @@ public class LibraryController {
     @GetMapping("/edit")
     public String editBook(@RequestParam("id") Long id, Model model) {
         model.addAttribute("book", bookService.findById(id));
+        model.addAttribute("authors", authorService.findAll());
+        model.addAttribute("genres", genreService.findAll());
         return "saveBook";
     }
 
     @GetMapping("/addBook")
     public String addBook(Model model) {
         model.addAttribute("book", new Book().setAuthor(new Author()).setGenre(new Genre()));
+        model.addAttribute("authors", authorService.findAll());
+        model.addAttribute("genres", genreService.findAll());
         return "saveBook";
     }
 

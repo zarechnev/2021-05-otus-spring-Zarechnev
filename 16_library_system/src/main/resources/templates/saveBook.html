@@ -39,13 +39,22 @@
 
                 <div class="form-group">
                     <label for="inputAuthor">Автор</label>
-                    <input type="text" class="form-control" id="inputAuthor" name="author"
-                           th:value="${book.author.name}">
+                    <select name="author" id="inputAuthor">
+                        <option th:value="${book.author.name}" th:text="${book.author.name}">current value</option>
+                        <th:block th:each="author: ${authors}">
+                            <option th:value="${author.name}" th:text="${author.name}">val</option>
+                        </th:block>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="inputGenre">Жанр</label>
-                    <input type="text" class="form-control" id="inputGenre" name="genre" th:value="${book.genre.name}">
+                    <select name="genre" id="inputGenre">
+                        <option th:value="${book.genre.name}" th:text="${book.genre.name}">current value</option>
+                        <th:block th:each="genre: ${genres}">
+                            <option th:value="${genre.name}" th:text="${genre.name}">val</option>
+                        </th:block>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Сохранить</button>

@@ -8,7 +8,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import ru.otus.zarechnev.library.domain.Author;
 import ru.otus.zarechnev.library.domain.Book;
 import ru.otus.zarechnev.library.domain.Genre;
+import ru.otus.zarechnev.library.service.AuthorService;
 import ru.otus.zarechnev.library.service.BookService;
+import ru.otus.zarechnev.library.service.GenreService;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -23,6 +25,10 @@ class LibraryControllerTest {
 
     @MockBean
     private BookService bookService;
+    @MockBean
+    private AuthorService authorService;
+    @MockBean
+    private GenreService genreService;
 
     @Test
     void allBooksPage() throws Exception {

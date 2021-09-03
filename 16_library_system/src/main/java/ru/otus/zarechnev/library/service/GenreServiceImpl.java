@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.otus.zarechnev.library.domain.Genre;
 import ru.otus.zarechnev.library.repository.GenreRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 class GenreServiceImpl implements GenreService {
@@ -17,5 +19,10 @@ class GenreServiceImpl implements GenreService {
     public Genre findFirstByNameOrCreateAndGet(String name) {
         return genreRepository.findFirstByName(name)
                 .orElseGet(() -> genreRepository.save(new Genre().setName(name)));
+    }
+
+    @Override
+    public List<Genre> findAll() {
+        return genreRepository.findAll();
     }
 }
