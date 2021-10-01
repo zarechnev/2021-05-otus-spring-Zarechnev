@@ -26,13 +26,11 @@ class BookServiceImpl implements BookService {
     }
 
     @Override
-    @Transactional
     public Book findById(Long bookId) {
         return bookRepository.findById(bookId).get();
     }
 
     @Override
-    @Transactional
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
