@@ -26,25 +26,25 @@ public class BatchCommands {
 
     @ShellMethod(value = "startMigrationJobWithJobLauncher", key = "sm-jl")
     public void startMigrationJobWithJobLauncher() throws Exception {
-        JobExecution importBookJobExecution = jobLauncher.run(importBookJob, new JobParameters());
         JobExecution importAuthorJobExecution = jobLauncher.run(importAuthorJob, new JobParameters());
-        System.out.println(importBookJobExecution);
+        JobExecution importBookJobExecution = jobLauncher.run(importBookJob, new JobParameters());
         System.out.println(importAuthorJobExecution);
+        System.out.println(importBookJobExecution);
     }
 
     @ShellMethod(value = "startMigrationJobWithJobOperator", key = "sm-jo")
     public void startMigrationJobWithJobOperator() throws Exception {
-        Long importBookExecutionId = jobOperator.start(IMPORT_BOOK_JOB_NAME, "");
         Long importAuthorExecutionId = jobOperator.start(IMPORT_AUTHOR_JOB_NAME, "");
-        String importBookSummary = jobOperator.getSummary(importBookExecutionId);
+        Long importBookExecutionId = jobOperator.start(IMPORT_BOOK_JOB_NAME, "");
         String importAuthorSummary = jobOperator.getSummary(importAuthorExecutionId);
+        String importBookSummary = jobOperator.getSummary(importBookExecutionId);
         System.out.printf("%s, %s%n", importBookSummary, importAuthorSummary);
     }
 
     @ShellMethod(value = "showInfo", key = "i")
     public void showInfo() {
         System.out.println(jobExplorer.getJobNames());
-        System.out.println(jobExplorer.getLastJobInstance(IMPORT_BOOK_JOB_NAME));
         System.out.println(jobExplorer.getLastJobInstance(IMPORT_AUTHOR_JOB_NAME));
+        System.out.println(jobExplorer.getLastJobInstance(IMPORT_BOOK_JOB_NAME));
     }
 }
