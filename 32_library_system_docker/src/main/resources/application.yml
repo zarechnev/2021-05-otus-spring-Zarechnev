@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    initialization-mode: always
+    url: jdbc:postgresql://localhost:5432/compose-postgres
+    username: compose-postgres
+    password: compose-postgres
+
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+
+server:
+  port : 8081
