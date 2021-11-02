@@ -33,7 +33,7 @@ class CommentRepositoryJpaTest {
         // then
         assertEquals(1L, byId.getId());
         assertEquals(2L, byId.getBook().getId());
-        assertEquals("Абырвалг", byId.getCommentText());
+        assertEquals("ERTergdfg", byId.getCommentText());
     }
 
     @Test
@@ -98,10 +98,10 @@ class CommentRepositoryJpaTest {
 
         assertEquals(1L, actual.get(0).getId());
         assertEquals(2L, actual.get(0).getBook().getId());
-        assertEquals("Абырвалг", actual.get(0).getCommentText());
+        assertEquals("ERTergdfg", actual.get(0).getCommentText());
 
         assertEquals(2L, actual.get(1).getId());
         assertEquals(2L, actual.get(1).getBook().getId());
-        assertEquals("Абырвалг2", actual.get(1).getCommentText());
+        assertEquals("ERTergdfg2", actual.get(1).getCommentText());
     }
 }

@@ -52,7 +52,7 @@ class BookRepositoryJpaTest {
 
         assertEquals(2, actual.get(1).getComments().size());
         assertEquals(
-                new Comment().setId(1L).setCommentText("Абырвалг"),
+                new Comment().setId(1L).setCommentText("ERTergdfg"),
                 actual.get(1).getComments().get(0).setBook(null)
         );
 
