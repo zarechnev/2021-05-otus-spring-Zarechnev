@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: "asap-cache-client-2"
+
+asap-cache:
+  host: localhost
+  port: 8081
+  user: user
+  pass: pass
+
+server:
+  port: 8090
+
+logging:
+  level:
+    ru.otus.zarechnev.client.service: DEBUG

@@ -1,0 +1,59 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'application'
+}
+
+group = 'ru.otus.zarechnev.asapcache'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+application {
+    mainClass = 'ru.otus.zarechnev.asapcache.client.AsapCacheClientApp1'
+}
+
+task prepareKotlinBuildScriptModel {
+
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ru.otus.zarechnev.asapcache.client.AsapCacheClientApp1'
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation files('lib/asap-cache-starter-0.0.1-plain.jar')
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'io.springfox:springfox-swagger2:2.4.0'
+    implementation 'io.springfox:springfox-swagger-ui:2.4.0'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
