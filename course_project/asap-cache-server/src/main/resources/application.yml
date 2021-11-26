@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: "asap-cache-server-app"
+
+asap-cache:
+  user: user
+  pass: pass
+
+server:
+  port: 8081
